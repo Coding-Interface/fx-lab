@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>PhaserFX Studio</title>
+  <meta name="claude:viewport-fit-sides" content="cover">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/studio.css">
+</head>
+<body>
+  <div class="studio" id="studio">
+    <header class="bar">
+      <div class="brand"><span class="mark" aria-hidden="true"></span><span class="brand-name">PhaserFX <b>Studio</b></span></div>
+      <nav class="tabs" role="tablist" aria-label="Editors">
+        <button type="button" role="tab" id="tab-transitions" data-editor="transitions" aria-selected="false">Transitions</button>
+        <button type="button" role="tab" id="tab-particles" data-editor="particles" aria-selected="true">Particles</button>
+        <button type="button" role="tab" id="tab-effects" data-editor="effects" aria-selected="false">Effects</button>
+      </nav>
+      <div class="bar-right">
+        <span class="save-state" id="save-state" aria-live="polite"></span>
+        <label class="preview-as" title="See how your preset looks on other devices"><span>Preview as</span><select id="preview-as" aria-label="Preview as device"></select></label>
+        <button type="button" class="btn ghost" id="btn-help" aria-expanded="false" aria-controls="help">How to use</button>
+      </div>
+    </header>
+
+    <section class="help" id="help" hidden>
+      <div class="help-grid">
+        <div><h3>1 · Pick or start</h3><p>Choose an example on the left, or press <b>New</b>. Examples are read-only; your changes save as a new preset in <b>My presets</b>.</p></div>
+        <div><h3>2 · Tune it live</h3><p>Every change in the inspector replays on the stage. Click the stage to move or fire the effect. Use slow motion to study it. <b>Undo</b> / <b>Redo</b> (Ctrl/⌘+Z, Ctrl/⌘+Shift+Z) step back through your edits.</p></div>
+        <div><h3>3 · Use it in your game</h3><p>Copy the code from the <b>Use in game</b> panel. Load PhaserFX, then one line plays your preset: <code>this.fx.particles(preset, x, y)</code>.</p></div>
+      </div>
+    </section>
+
+    <aside class="library" id="library" aria-label="Presets"></aside>
+
+    <main class="center">
+      <div class="stage-bar" id="stage-bar" role="toolbar" aria-label="Preview controls"></div>
+      <div class="stage-wrap"><div id="stage" aria-label="Live preview"></div><div class="stage-hint" id="stage-hint"></div></div>
+      <div class="below-stage" id="below-stage"></div>
+      <section class="code" id="code" aria-label="Use in game"></section>
+    </main>
+
+    <aside class="inspector" id="inspector" aria-label="Inspector"></aside>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <!-- Phaser 3 + PhaserFX (the Studio previews with the same runtime your game uses) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js"></script>
+  <script src="../dist/phaser-fx.js"></script>
+
+  <script src="js/core/Store.js"></script>
+  <script src="js/core/History.js"></script>
+  <script src="js/core/Exporter.js"></script>
+  <script src="js/ui/Toast.js"></script>
+  <script src="js/ui/Form.js"></script>
+  <script src="js/ui/Library.js"></script>
+  <script src="js/ui/CodePanel.js"></script>
+  <script src="js/ui/TexturePicker.js"></script>
+  <script src="js/ui/Timeline.js"></script>
+  <script src="js/ui/TimingGraph.js"></script>
+  <script src="js/stage/StageArt.js"></script>
+  <script src="js/stage/StageScene.js"></script>
+  <script src="js/editors/BaseEditor.js"></script>
+  <script src="js/editors/TransitionEditor.js"></script>
+  <script src="js/editors/ParticleEditor.js"></script>
+  <script src="js/editors/EffectEditor.js"></script>
+  <script src="js/core/Studio.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

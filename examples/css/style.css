@@ -1,0 +1,24 @@
+:root {
+  color-scheme: dark;
+  --bg: #0b0818;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+#game {
+  position: fixed;
+  inset: 0;
+  padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+  box-sizing: border-box;
+}
+
+#game canvas {
+  display: block;
+  border-radius: 12px;
+  touch-action: none;
+}

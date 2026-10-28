@@ -1,0 +1,17 @@
+{
+  "name": "phaser-fx",
+  "version": "1.2.0",
+  "description": "Plug-and-play special effects for Phaser 3.60+: particles, rewards, quiz feedback, card reveals, story and combat effects.",
+  "main": "dist/phaser-fx.js",
+  "module": "dist/phaser-fx.esm.js",
+  "types": "dist/phaser-fx.d.ts",
+  "files": ["dist", "src", "README.md"],
+  "scripts": {
+    "build": "node tools/build.mjs"
+  },
+  "peerDependencies": {
+    "phaser": "^3.60.0"
+  },
+  "keywords": ["phaser", "phaser3", "particles", "effects", "juice", "game-feel", "gamification", "edtech"],
+  "license": "MIT"
+}
