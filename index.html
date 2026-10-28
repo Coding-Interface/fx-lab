@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <title>FX Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Manrope:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/lab.css">
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">✦</span>
+        <span class="name">FX Lab</span>
+        <span class="tag">29 Phaser 3 effects for games, learning & stories, taken apart</span>
+      </div>
+      <nav class="views" aria-label="Views">
+        <button type="button" data-view="lab" aria-pressed="true">Effects</button>
+        <button type="button" data-view="principles" aria-pressed="false">Principles</button>
+      </nav>
+    </header>
+
+    <aside class="sidebar" aria-label="Effects">
+      <p class="filter-label" id="purpose-label">Show effects for</p>
+      <div class="purpose" id="purpose-filter" role="group" aria-labelledby="purpose-label"></div>
+      <nav id="effect-list" aria-label="Effect list"></nav>
+    </aside>
+
+    <main class="main">
+      <section id="view-lab" class="lab">
+        <div class="toolbar">
+          <div class="titles">
+            <p class="eyebrow" id="fx-group">Cards</p>
+            <h1 id="fx-title">Legendary Reveal</h1>
+            <p class="hint" id="fx-hint"></p>
+            <div class="tags" id="fx-tags" aria-label="Good for"></div>
+          </div>
+          <div class="controls" role="toolbar" aria-label="Playback">
+            <button type="button" id="btn-replay" class="btn primary" title="Replay (R)"><span aria-hidden="true">↻</span> Replay</button>
+            <button type="button" id="btn-slow" class="btn toggle" aria-pressed="false" title="Slow motion 0.25× (S)">Slow-mo 0.25×</button>
+            <button type="button" id="btn-reduce" class="btn toggle" aria-pressed="false" title="Fewer particles, no shake, softer flashes">Reduce motion</button>
+            <button type="button" id="btn-sound" class="btn toggle" aria-pressed="true"><span aria-hidden="true">♪</span> <span class="lbl">Sound on</span></button>
+          </div>
+        </div>
+
+        <div class="stage-wrap">
+          <div id="stage" role="img" aria-label="Effect preview. Click or tap to trigger the effect."></div>
+        </div>
+
+        <div class="panel">
+          <div class="card tweak">
+            <div class="card-head">
+              <h2>Tweak</h2>
+              <button type="button" id="fx-reset" class="link">Reset</button>
+            </div>
+            <div id="fx-params" class="params"></div>
+          </div>
+
+          <div class="card explain">
+            <div class="panel-tabs" role="tablist" aria-label="Effect details">
+              <button type="button" role="tab" id="t-how" aria-controls="tab-how" aria-selected="true">How it works</button>
+              <button type="button" role="tab" id="t-code" aria-controls="tab-code" aria-selected="false">Code</button>
+            </div>
+            <div id="tab-how" role="tabpanel" aria-labelledby="t-how">
+              <div class="use-for"><b>Use it for</b><span id="fx-use"></span></div>
+              <p id="fx-summary" class="summary"></p>
+              <ol id="fx-steps" class="steps"></ol>
+            </div>
+            <div id="tab-code" role="tabpanel" aria-labelledby="t-code" hidden>
+              <div class="code-bar">
+                <div class="code-files"></div>
+                <button type="button" class="code-copy btn small">Copy</button>
+              </div>
+              <pre class="code"><code></code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="view-principles" class="principles" hidden></section>
+    </main>
+  </div>
+
+  <!-- Phaser 3 (MIT) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js"></script>
+
+  <script src="js/core/FXSound.js"></script>
+  <script src="js/fx/FXTextures.js"></script>
+  <script src="js/fx/Juice.js"></script>
+  <script src="js/fx/CardArt.js"></script>
+  <script src="js/fx/Card.js"></script>
+  <script src="js/fx/RarityFX.js"></script>
+  <script src="js/fx/UIArt.js"></script>
+  <script src="js/fx/QuizBoard.js"></script>
+
+  <script src="js/effects/BaseEffect.js"></script>
+  <script src="js/effects/EasingLab.js"></script>
+  <script src="js/effects/SparkBurst.js"></script>
+  <script src="js/effects/ConfettiRain.js"></script>
+  <script src="js/effects/MagicTrail.js"></script>
+  <script src="js/effects/FireAndSmoke.js"></script>
+  <script src="js/effects/PortalVortex.js"></script>
+  <script src="js/effects/Fireworks.js"></script>
+  <script src="js/effects/CoinFountain.js"></script>
+  <script src="js/effects/Shockwave.js"></script>
+  <script src="js/effects/CardFlip.js"></script>
+  <script src="js/effects/LockedUnlock.js"></script>
+  <script src="js/effects/LegendaryReveal.js"></script>
+  <script src="js/effects/PackOpening.js"></script>
+  <script src="js/effects/Weather.js"></script>
+  <script src="js/effects/HitDamage.js"></script>
+  <script src="js/effects/CorrectAnswer.js"></script>
+  <script src="js/effects/GentleRetry.js"></script>
+  <script src="js/effects/QuizTimer.js"></script>
+  <script src="js/effects/StreakCombo.js"></script>
+  <script src="js/effects/StarRating.js"></script>
+  <script src="js/effects/XPLevelUp.js"></script>
+  <script src="js/effects/BadgeUnlock.js"></script>
+  <script src="js/effects/ProgressMap.js"></script>
+  <script src="js/effects/TypewriterDialogue.js"></script>
+  <script src="js/effects/EmotionBubbles.js"></script>
+  <script src="js/effects/ChapterTitle.js"></script>
+  <script src="js/effects/SceneTransitions.js"></script>
+  <script src="js/effects/DayNight.js"></script>
+  <script src="js/effects/Spotlight.js"></script>
+
+  <script src="js/lab/EffectRegistry.js"></script>
+  <script src="js/lab/CodeView.js"></script>
+  <script src="js/lab/Principles.js"></script>
+  <script src="js/lab/LabScene.js"></script>
+  <script src="js/lab/LabUI.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
